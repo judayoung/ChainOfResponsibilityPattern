@@ -44,8 +44,7 @@ public class Won10Dispenser implements DispenseChain{
 
     @Override
     public boolean isDispensable(Currency currency) {
-        if (unit <= currency.getAmount()) return true;
-        else return false;
+        return unit <= currency.getAmount();
     }
 
 }
