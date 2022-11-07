@@ -23,7 +23,7 @@ public class Won1Dispenser implements DispenseChain{
     @Override
     public void dispenseAndGoNextChain(Currency currency) {
         int dispensedAmount = getDispensedAmount(currency);
-        int restAmount = getRestAmount(currency);
+//        int restAmount = getRestAmount(currency);
 
         dispensePass(dispensedAmount);
 //        nextChain.dispense(new Currency(restAmount));
@@ -33,7 +33,6 @@ public class Won1Dispenser implements DispenseChain{
     @Override
     public int getDispensedAmount(Currency currency) {
         int unitAmount = currency.getAmount() / unit;
-        System.out.println(unitAmount);
         int dispensedAmount = unitAmount * unit;
         return dispensedAmount;
     }
@@ -46,7 +45,6 @@ public class Won1Dispenser implements DispenseChain{
 
     @Override
     public boolean isDispensable(Currency currency) {
-        if (unit <= currency.getAmount()) return true;
-        else return false;
+        return unit <= currency.getAmount();
     }
 }

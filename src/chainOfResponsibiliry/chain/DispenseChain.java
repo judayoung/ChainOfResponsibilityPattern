@@ -19,11 +19,11 @@ public interface DispenseChain {
     int getRestAmount(Currency currency);
 
     default void dispensePass(int dispensedAmount) {
-        System.out.println("Dispense result : " + dispensedAmount + " " + WON + ".");
+        System.out.println("---dispense---> \t" + dispensedAmount + " " + WON + ".");
     }
 
     default void dispenseFail(int amount) {
-        System.out.println("Dispense result : FAIL. " + amount + " " + WON + " is smaller than Dispenser's unit.\n");
+        System.out.println("---dispense---> FAIL. " + amount + " " + WON + " is smaller than Dispenser's unit.\n(" + this.getClass() + ")\n");
     }
 
 }

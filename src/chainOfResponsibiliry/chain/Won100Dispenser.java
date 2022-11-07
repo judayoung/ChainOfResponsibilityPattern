@@ -14,10 +14,13 @@ public class Won100Dispenser implements DispenseChain {
 
     @Override
     public void dispense(Currency currency) {
+        System.out.println(currency.getAmount() + " won.");
+
         if (isDispensable(currency)) {
             dispenseAndGoNextChain(currency);
         } else {
-            dispenseFail(currency.getAmount());
+//            dispenseFail(currency.getAmount());   // 방법 1. 실패처리
+            nextChain.dispense(currency);   // 방법 2. 다음 체인 선택처리
         }
     }
 
@@ -45,8 +48,7 @@ public class Won100Dispenser implements DispenseChain {
 
     @Override
     public boolean isDispensable(Currency currency) {
-        if (unit <= currency.getAmount()) return true;
-        else return false;
+        return unit <= currency.getAmount();
     }
 
 }
