@@ -23,7 +23,7 @@ public interface DispenseChain {
     }
 
     default void dispenseFail(int amount) {
-        System.out.println("---dispense---> FAIL. " + amount + " " + WON + " is smaller than Dispenser's unit.\n(" + this.getClass() + ")\n");
+        System.out.println("---dispense---> FAIL. " + amount + " " + WON + " is smaller than Dispenser's unit.\n(" + this.getClass().getSimpleName() + ")\n");
     }
 
 }

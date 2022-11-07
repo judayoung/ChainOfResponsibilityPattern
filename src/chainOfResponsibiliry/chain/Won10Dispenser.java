@@ -16,7 +16,8 @@ public class Won10Dispenser implements DispenseChain{
         if (isDispensable(currency)) {
             dispenseAndGoNextChain(currency);
         } else {
-            dispenseFail(currency.getAmount());
+//            dispenseFail(currency.getAmount());   // 방법 1. 실패처리
+            nextChain.dispense(currency);   // 방법 2. 다음 체인 선택처리
         }
     }
 
